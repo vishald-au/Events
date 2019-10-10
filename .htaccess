@@ -1,0 +1,14 @@
+RewriteEngine Off # Nullifies the mod_rewrite rules in /public_html/.htaccess so the site resolves properly
+RewriteEngine On # Turns mod_rewrite back on for later use
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
